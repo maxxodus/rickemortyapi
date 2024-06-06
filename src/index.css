@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, rgba(100, 140, 243, 0.5), rgba(213, 143, 249, 0.5)), url('assets/saa.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+input[type="number"] {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #000000;
+  color: #fefefe;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fcfcfc;
+  color: #000000;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+#content p {
+  margin: 0;
+}
+
+#result-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  max-height: 400px;
+  overflow: auto;
+  width: 100%;
+}
+
+#img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
+}
