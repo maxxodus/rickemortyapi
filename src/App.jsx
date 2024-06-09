@@ -4,11 +4,12 @@ function App() {
   const [characterId, setCharacterId] = useState('');
   const [characterData, setCharacterData] = useState(null);
   const [error, setError] = useState(null);
+  const [currentCharacterId, setCurrentCharacterId] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character/${characterId}`);
+        const response = await fetch(`https://rickandmortyapi.com/api/character/${currentCharacterId}`);
         if (!response.ok) {
           throw new Error('Falha ao carregar os dados');
         }
@@ -21,11 +22,8 @@ function App() {
       }
     };
 
-    if (characterId) {
-      fetchData();
-     
-    }
-  }, [characterId]);
+    fetchData();
+  }, [currentCharacterId]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -34,7 +32,19 @@ function App() {
       alert('Por favor, insira um ID válido (entre 1 e 671).');
       return;
     }
-    setCharacterId(id);
+    setCurrentCharacterId(id);
+  };
+
+  const handlePrevious = () => {
+    if (currentCharacterId > 1) {
+      setCurrentCharacterId(currentCharacterId - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentCharacterId < 671) {
+      setCurrentCharacterId(currentCharacterId + 1);
+    }
   };
 
   return (
@@ -63,11 +73,13 @@ function App() {
           </div>
         </div>
       )}
+      <button onClick={handlePrevious}>Anterior</button>
+      <button onClick={handleNext}>Próximo</button>
     </div>
   );
 }
 
-
 export default App;
+
 
 
